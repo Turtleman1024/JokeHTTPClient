@@ -9,3 +9,12 @@ This application makes a call to get a joke from the JokeAPI by Sv443 using a HT
 HTTP Client Documentation can be found at https://docs.microsoft.com/en-us/aspnet/web-api/overview/advanced/calling-a-web-api-from-a-net-client
 
 Documentation of the JokeAPI can be found at https://www.sv443.net/jokeapi
+
+## Example Response 
+```
+Id: 49
+Category: Programming
+Type: twopart
+Setup: .NET developers are picky when it comes to food.
+Delivery: They only like Chicken NuGet.
+```
