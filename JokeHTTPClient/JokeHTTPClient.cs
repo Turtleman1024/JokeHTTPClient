@@ -13,9 +13,9 @@ namespace JokeHTTPClient
         public string Joke { get; set; } = null;
         public string Setup { get; set; } = null;
         public string Delivery { get; set; } = null;
-        //public string Nsfw { get; set; } = null;
-        //public string Religious { get; set; } = null;
-        //public string Political { get; set; } = null;
+        public string Nsfw { get; set; } = null;
+        public string Religious { get; set; } = null;
+        public string Political { get; set; } = null;
         public string Id { get; set; } = null;
     }
     
@@ -31,8 +31,11 @@ namespace JokeHTTPClient
                         $"Id: {joke.Id}\n" +
                         $"Category: {joke.Category}\n" +
                         $"Type: {joke.Type}\n" +
-                        $"Setup: {joke.Setup}" +
-                        $"Delivery: {joke.Delivery}\n");
+                        $"Setup: {joke.Setup}\n" +
+                        $"Delivery: {joke.Delivery}\n" +
+                        $"NSFW: {joke.Nsfw}\n" +
+                        $"Religious: {joke.Religious}\n" +
+                        $"Political: {joke.Political}\n");
             }
             else
             {
@@ -40,7 +43,10 @@ namespace JokeHTTPClient
                         $"Id: {joke.Id}\n" +
                         $"Category: {joke.Category}\n" +
                         $"Type: {joke.Type}\n" +
-                        $"Joke: {joke.Joke}\n");
+                        $"Joke: {joke.Joke}\n" +
+                        $"NSFW: {joke.Nsfw}\n" +
+                        $"Religious: {joke.Religious}\n" +
+                        $"Political: {joke.Political}\n");
             }
         }
 
@@ -59,11 +65,8 @@ namespace JokeHTTPClient
         {
             try
             {
-                //for (int i = 0; i <= 9; i++)
-                //{
-                    JokeContent joke = await GetJokeAsync($"https://sv443.net/jokeapi/category/{categoryName}?blacklistFlags=religious,political,nsfw");
-                    ShowJoke(joke);
-                //}
+                JokeContent joke = await GetJokeAsync($"https://sv443.net/jokeapi/category/{categoryName}");
+                ShowJoke(joke);
             }
             catch (Exception e)
             {
