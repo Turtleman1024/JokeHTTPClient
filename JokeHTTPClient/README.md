@@ -11,10 +11,9 @@ HTTP Client Documentation can be found at https://docs.microsoft.com/en-us/aspne
 Documentation of the JokeAPI can be found at https://www.sv443.net/jokeapi
 
 ## Example Response 
-```
+
 Id: 49
 Category: Programming
 Type: twopart
 Setup: .NET developers are picky when it comes to food.
 Delivery: They only like Chicken NuGet.
-```
