@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JokeHTTPClient", "JokeHTTPClient\JokeHTTPClient.csproj", "{EA1A7FA7-A5E0-4D88-BCAB-CB400761ACF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E8D78AE4-F206-4C20-B786-E370F79BE98F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA1A7FA7-A5E0-4D88-BCAB-CB400761ACF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA1A7FA7-A5E0-4D88-BCAB-CB400761ACF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA1A7FA7-A5E0-4D88-BCAB-CB400761ACF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA1A7FA7-A5E0-4D88-BCAB-CB400761ACF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EA1A7FA7-A5E0-4D88-BCAB-CB400761ACF3} = {E8D78AE4-F206-4C20-B786-E370F79BE98F}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1BDCDD83-BFC8-4B80-9141-5BDD5043D8F1}
+	EndGlobalSection
+EndGlobal
