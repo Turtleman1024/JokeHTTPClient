@@ -21,9 +21,9 @@ namespace JokeHTTPClient
     
     public class JokeHTTPClient
     {
-        private static readonly HttpClient client = new HttpClient();
+        private static readonly HttpClient _client = new HttpClient();
 
-        static void ShowJoke(JokeContent joke)
+        private static void ShowJoke(JokeContent joke)
         {
             if (joke.Type.ToLower() == "twopart")
             {
@@ -50,10 +50,10 @@ namespace JokeHTTPClient
             }
         }
 
-        static async Task<JokeContent> GetJokeAsync(string path)
+        private static async Task<JokeContent> GetJokeAsync(string path)
         {
             JokeContent jokeContent = null;
-            HttpResponseMessage response = await client.GetAsync(path);
+            HttpResponseMessage response = await _client.GetAsync(path);
             if(response.IsSuccessStatusCode)
             {
                 jokeContent = await response.Content.ReadAsAsync<JokeContent>();
@@ -61,7 +61,7 @@ namespace JokeHTTPClient
             return jokeContent;
         }
 
-        static async Task RunAsync(string categoryName)
+        private static async Task RunAsync(string categoryName)
         {
             try
             {
@@ -74,9 +74,73 @@ namespace JokeHTTPClient
             }
         }
 
+        private static void EnterMessage()
+        {
+            Console.WriteLine("\tWelcome to Joke HTTP Client");
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("This program calls the Joke API by sv433");
+            Console.WriteLine("You can get Jokes in three categories");
+            Console.WriteLine("1. Programming\n2. Miscellaneous\n3. Dark\n4. Any\n");
+            Console.WriteLine("To exit the application enter Exit");
+        }
+
+        private static string Prompt()
+        {
+            Console.Write("Enter a category number or name: ");
+            var userInput = Console.ReadLine();
+            switch(userInput)
+            {
+                case "1":
+                case "Programming":
+                    userInput = "Programming";
+                    break;
+                case "2":
+                case "Miscellaneous":
+                    userInput = "Miscellaneous";
+                    break;
+                case "3":
+                case "Dark":
+                    userInput = "Dark";
+                    break;
+                case "4":
+                case "Any":
+                    userInput = "Any";
+                    break;
+                default:
+                    userInput = "Quit";
+                    break;
+            };
+
+
+            return userInput;
+        }
+
+        private static void ExitMessage()
+        {
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Thank for checking out the application.");
+        }
+
         static void Main(string[] args)
         {
-            RunAsync("Programming").GetAwaiter().GetResult();
+            bool exit = false;
+            string userInput = null;
+            EnterMessage();
+
+            while (!exit)
+            {
+                userInput = Prompt();
+                if (userInput != "Quit")
+                {
+                    RunAsync(userInput).GetAwaiter().GetResult();
+                }
+                else
+                {
+                    exit = true;
+                }
+            }
+
+            ExitMessage();
             Console.ReadLine();
         }
     }
