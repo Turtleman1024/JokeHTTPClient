@@ -8,14 +8,14 @@ namespace JokeHTTPClient
         {
             bool exit = false;
             string userInput = null;
-            Prompts.EnterMessage();
+            Messages.EnterMessage();
 
             while (!exit)
             {
                 userInput = Prompts.PromptUser();
                 if (userInput == "Help")
                 {
-                    Prompts.HelpMessage();
+                    Messages.HelpMessage();
                 }
                 else if (userInput == "Exit")
                 {
@@ -24,7 +24,7 @@ namespace JokeHTTPClient
                 else if (userInput == "Error")
                 {
                     Console.WriteLine("\nInvalid Input\n");
-                    Prompts.HelpMessage();
+                    Messages.HelpMessage();
                 }
                 else
                 {
@@ -32,7 +32,7 @@ namespace JokeHTTPClient
                 }
             }
 
-            Prompts.ExitMessage();
+            Messages.ExitMessage();
             Console.ReadLine();
         }
     }
