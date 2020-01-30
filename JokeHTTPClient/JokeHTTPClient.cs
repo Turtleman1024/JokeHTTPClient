@@ -7,15 +7,17 @@ namespace JokeHTTPClient
         static void Main(string[] args)
         {
             bool exit = false;
-            string userInput = null;
-            Messages.EnterMessage();
+            Logger logger = new Logger();
+            Messages message = new Messages(logger);
+
+            message.EnterMessage();
 
             while (!exit)
             {
-                userInput = Prompts.PromptUser();
+                string userInput = Prompts.PromptUser();
                 if (userInput == "Help")
                 {
-                    Messages.HelpMessage();
+                    message.HelpMessage();
                 }
                 else if (userInput == "Exit")
                 {
@@ -23,8 +25,8 @@ namespace JokeHTTPClient
                 }
                 else if (userInput == "Error")
                 {
-                    Console.WriteLine("\nInvalid Input\n");
-                    Messages.HelpMessage();
+                    logger.Log("\nInvalid Input\n");
+                    message.HelpMessage();
                 }
                 else
                 {
@@ -32,7 +34,7 @@ namespace JokeHTTPClient
                 }
             }
 
-            Messages.ExitMessage();
+            message.ExitMessage();
             Console.ReadLine();
         }
     }

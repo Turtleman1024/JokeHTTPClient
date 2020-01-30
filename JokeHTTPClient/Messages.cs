@@ -6,26 +6,33 @@ namespace JokeHTTPClient
 {
     public class Messages
     {
-        public static void EnterMessage()
+        private ILogger _logger;
+
+        public Messages(ILogger logger)
         {
-            Console.WriteLine("\tWelcome to Joke HTTP Client");
-            Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("This program calls the Joke API by sv433");
+            _logger = logger;
+        }
+
+        public void EnterMessage()
+        {
+            _logger.Log("\tWelcome to Joke HTTP Client");
+            _logger.Log("-------------------------------------------");
+            _logger.Log("This program calls the Joke API by sv433");
             HelpMessage();
         }
 
-        public static void HelpMessage()
+        public void HelpMessage()
         {
-            Console.WriteLine("You can get Jokes in four categories");
-            Console.WriteLine("1. Programming\n2. Miscellaneous\n3. Dark\n4. Any\n");
-            Console.WriteLine("If you need help at anytime enter 5 or Help\n");
-            Console.WriteLine("To exit the application enter 6 or Exit\n");
+            _logger.Log("You can get Jokes in four categories");
+            _logger.Log("1. Programming\n2. Miscellaneous\n3. Dark\n4. Any\n");
+            _logger.Log("If you need help at anytime enter 5 or Help\n");
+            _logger.Log("To exit the application enter 6 or Exit\n");
         }
 
-        public static void ExitMessage()
+        public void ExitMessage()
         {
-            Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("Thank for checking out the application.");
+            _logger.Log("-------------------------------------------");
+            _logger.Log("Thank for checking out the application.");
         }
     }
 }
