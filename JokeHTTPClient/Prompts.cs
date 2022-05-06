@@ -8,35 +8,15 @@ namespace JokeHTTPClient
         {
             Console.Write("Enter a category number or name: ");
             var userInput = Console.ReadLine();
-            switch (userInput)
+            userInput = userInput switch
             {
-                case "1":
-                case "Programming":
-                    userInput = "Programming";
-                    break;
-                case "2":
-                case "Miscellaneous":
-                    userInput = "Miscellaneous";
-                    break;
-                case "3":
-                case "Dark":
-                    userInput = "Dark";
-                    break;
-                case "4":
-                case "Any":
-                    userInput = "Any";
-                    break;
-                case "5":
-                case "Help":
-                    userInput = "Help";
-                    break;
-                case "6":
-                case "Exit":
-                    userInput = "Exit";
-                    break;
-                default:
-                    userInput = "Error";
-                    break;
+                "1" or "Programming" => "Programming",
+                "2" or "Miscellaneous" => "Miscellaneous",
+                "3" or "Dark" => "Dark",
+                "4" or "Any" => "Any",
+                "5" or "Help" => "Help",
+                "6" or "Exit" => "Exit",
+                _ => "Error",
             };
             return userInput;
         }
