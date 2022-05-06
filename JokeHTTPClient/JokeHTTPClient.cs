@@ -15,22 +15,30 @@ namespace JokeHTTPClient
             while (!exit)
             {
                 string userInput = Prompts.PromptUser();
-                if (userInput == "Help")
+
+                switch (userInput.ToLower())
                 {
-                    message.HelpMessage();
-                }
-                else if (userInput == "Exit")
-                {
-                    exit = true;
-                }
-                else if (userInput == "Error")
-                {
-                    logger.Log("\nInvalid Input\n");
-                    message.HelpMessage();
-                }
-                else
-                {
-                    JokeClient.RunAsync(userInput).GetAwaiter().GetResult();
+                    case "help":
+                        {
+                            message.HelpMessage();
+                            break;
+                        }
+                    case "exit":
+                        {
+                            exit = true;
+                            break;
+                        }
+                    case "error":
+                        {
+                            logger.Log("\nInvalid Input\n");
+                            message.HelpMessage();
+                            break;
+                        }
+                    default:
+                        {
+                            JokeClient.RunAsync(userInput).GetAwaiter().GetResult();
+                            break;
+                        }
                 }
             }
 
