@@ -23,7 +23,7 @@ namespace JokeHTTPClient
         {
             try
             {
-                JokeContent joke = await GetJokeAsync($"https://sv443.net/jokeapi/category/{categoryName}");
+                JokeContent joke = await GetJokeAsync($"https://v2.jokeapi.dev/joke/{categoryName}");
                 JokeContent.ShowJoke(joke);
             }
             catch (Exception e)
