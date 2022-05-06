@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace JokeHTTPClient
 {
@@ -18,26 +19,30 @@ namespace JokeHTTPClient
         {
             if (joke.Type.ToLower() == "twopart")
             {
-                Console.WriteLine(
-                        $"\nId: {joke.Id}\n" +
-                        $"Category: {joke.Category}\n" +
-                        $"Type: {joke.Type}\n" +
-                        $"Setup: {joke.Setup}\n" +
-                        $"Delivery: {joke.Delivery}\n" +
-                        $"NSFW: {joke.Nsfw}\n" +
-                        $"Religious: {joke.Religious}\n" +
-                        $"Political: {joke.Political}\n");
+                //Console.WriteLine(
+                //        $"\nId: {joke.Id}\n" +
+                //        $"Category: {joke.Category}\n" +
+                //        $"Type: {joke.Type}\n" +
+                //        $"Setup: {joke.Setup}\n" +
+                //        $"Delivery: {joke.Delivery}\n" +
+                //        $"NSFW: {joke.Nsfw}\n" +
+                //        $"Religious: {joke.Religious}\n" +
+                //        $"Political: {joke.Political}\n");
+                Console.WriteLine($"{joke.Setup}\n");
+                Thread.Sleep(2000);
+                Console.WriteLine( $"{joke.Delivery}\n");
             }
             else
             {
-                Console.WriteLine(
-                        $"\nId: {joke.Id}\n" +
-                        $"Category: {joke.Category}\n" +
-                        $"Type: {joke.Type}\n" +
-                        $"Joke: {joke.Joke}\n" +
-                        $"NSFW: {joke.Nsfw}\n" +
-                        $"Religious: {joke.Religious}\n" +
-                        $"Political: {joke.Political}\n");
+                //Console.WriteLine(
+                //        $"\nId: {joke.Id}\n" +
+                //        $"Category: {joke.Category}\n" +
+                //        $"Type: {joke.Type}\n" +
+                //        $"Joke: {joke.Joke}\n" +
+                //        $"NSFW: {joke.Nsfw}\n" +
+                //        $"Religious: {joke.Religious}\n" +
+                //        $"Political: {joke.Political}\n");
+                Console.WriteLine(joke.Joke);
             }
         }
     }
